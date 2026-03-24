@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from cafeteria_app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home, name='home'),
+    path('students/', views.student_list, name='student_list'),
+    path('students/add/', views.student_add, name='student_add'),
+    path('students/<int:pk>/edit/', views.student_edit, name='student_edit'),
+    path('students/<int:pk>/delete/', views.student_delete, name='student_delete'),
+    path('products/', product_list, name='product_list'),
+    path('transactions/', transaction_list, name='transaction_list'),
 ]
