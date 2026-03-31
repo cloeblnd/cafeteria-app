@@ -11,13 +11,13 @@ def transaction_list(request):
     transactions = Transaction.objects.all()
     return render(request, 'transaction_list.html', {'transactions': transactions})
 
-    def student_add(request):
+def student_add(request):
     if request.method == 'POST':
         # Traiter le formulaire
         form = StudentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('student_list')
+    if form.is_valid():
+        form.save()
+        return redirect('student_list')
     else:
         form = StudentForm()
     return render(request, 'student_form.html', {'form': form})
